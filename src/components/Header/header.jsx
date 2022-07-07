@@ -1,7 +1,6 @@
-import { NavLink, useParams } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import logo from 'assets/img/Kasa_logo.svg';
 import styleHeader  from 'assets/styles/components/header.module.scss';
-import { useEffect, useState } from 'react';
 
 function Header() {
 
@@ -14,10 +13,6 @@ function Header() {
         const slug = item.Name.replace(/\s+/g, '-').toLowerCase()
         slug.includes("accueil" ) ? item.Slug = "" : item.Slug = slug;
     });
-
-    const windowURL = window.location.pathname;
-    console.log(windowURL);
-    
 
     return (
         <div id={styleHeader.header}>
