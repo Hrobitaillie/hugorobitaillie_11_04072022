@@ -1,0 +1,97 @@
+@use '../utils/mixins';
+
+.accordionsContainer{
+    display: flex;
+    gap: 70px;
+    @include mixins.mobile{
+        gap: 30px;
+        flex-wrap: wrap;
+    }
+}
+.accordion{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    max-width: 580px;
+    width: 100%;
+}
+.accordionTitle{
+    background-color: var(--color-red);
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border-radius: 10px;
+    
+    span{
+        color: white;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        @include mixins.mobile{
+            font-size: 13px;
+        }
+    }
+    img{
+        cursor: pointer;
+        transform: rotateX(180deg);
+        @include mixins.mobile{
+            width:15px;
+        }
+    }
+}
+.accordionContent{
+    z-index: -1;
+    flex-basis: 100%;
+   
+    background-color: #F7F7F7;
+    border-radius: 10px;
+    margin-top: -10px;
+    display: flex;
+    flex-direction: column;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    color: #FF6060;
+    transition: all .35s;
+    overflow: hidden;
+    @include mixins.mobile{
+        font-size: 12px;
+    }
+    ul{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+}
+.accordionClose{
+    div[class*="accordionContent"]{
+        max-height: 0;
+        padding: 0 20px;
+    }
+    img[alt="collapseIcon"]{
+        transform: rotate(180deg);
+        transition: transform 300ms ease-in-out ;
+    }
+}
+.accordionOpen{
+    div[class*="accordionContent"]{
+        max-height: 100vh;
+        padding: 40px 20px;
+    }
+    img[alt="collapseIcon"]{
+        transform: rotate(0deg);
+        transition: transform 300ms ease-in-out ;
+    }
+}
+.accordionsAboutContainer{
+    gap: 30px;
+    flex-direction: column;
+    margin-top: 30px;
+    > div{
+        max-width: 1023px;
+        margin: auto;
+    }
+}
+
+

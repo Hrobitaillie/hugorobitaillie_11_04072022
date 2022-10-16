@@ -1,3 +1,5 @@
+@use '../utils/mixins';
+
 #header{
     display: flex;
     width: 100%;
@@ -5,9 +7,20 @@
     align-items: center;
     padding: 40px 100px;
     box-sizing: border-box;
+    @include mixins.ipad{
+        padding: 20px;
+    }
+    img{
+        @include mixins.ipad{
+            width: 145px;
+        }
+    }
     nav{
         display: flex;
         gap: 50px;
+        @include mixins.mobile{
+            gap: 10px;
+        }
         .navbar_item{
             font-family: 'Montserrat';
             font-style: normal;
@@ -15,6 +28,12 @@
             font-size: 24px;
             color: #FF6060;
             text-decoration: none;
+            @include mixins.ipad{
+                font-size: 18px;
+            }
+            @include mixins.mobile{
+                font-size: 12px;
+            }
             &:hover{
                 text-decoration: underline;
             }

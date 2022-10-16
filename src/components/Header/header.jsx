@@ -1,13 +1,12 @@
 import { NavLink } from 'react-router-dom';
 import logo from 'assets/img/Kasa_logo.svg';
 import styleHeader  from 'assets/styles/components/header.module.scss';
+import { Link } from 'react-router-dom';
+import { menuItems } from 'assets/textDatas';
 
 function Header() {
 
-    const menuItems = [
-        {Name: "Accueil"},
-        {Name: "A propos"}
-    ]
+    
 
     menuItems.forEach((item) => {
         const slug = item.Name.replace(/\s+/g, '-').toLowerCase()
@@ -16,7 +15,7 @@ function Header() {
 
     return (
         <div id={styleHeader.header}>
-            <img src={logo} alt="" />
+            <Link to={"/"} ><img src={logo} alt="" /></Link>
             <nav>
                 {menuItems.map((item, index) => {
                     return (

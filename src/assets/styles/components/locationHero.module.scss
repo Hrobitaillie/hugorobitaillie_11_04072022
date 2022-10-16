@@ -1,0 +1,85 @@
+@use '../utils/mixins';
+
+.h1{
+    color: var(--color-red);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 36px;
+    margin: 0;
+    padding: 0;
+    @include mixins.mobile{
+        font-size: 18px;
+    }
+}
+.h3{
+    margin: 0;
+    color: var(--color-red);
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+}
+.row{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.tags{
+    list-style: none;
+    display: flex;
+    gap:10px;
+    padding: 0;
+    @include mixins.mobile{
+        margin-bottom:0;
+    }
+    li{
+        background-color: var(--color-red);
+        color: white;
+        padding: 3px 30px;
+        border-radius: 10px;
+        @include mixins.mobile{
+            font-size: 14px;
+            padding: 3px 10px;
+
+        }
+    }
+}
+.colStar{
+    @include mixins.mobile{
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+        align-items: center;
+        width: 100%;
+    }
+}
+.RatingContainer{
+    @include mixins.mobile{
+       img{
+        width: 15px;
+       }
+    }
+}
+.userInfo{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    p{
+        font-weight: 500;
+        font-size: 18px;
+        color: var(--color-red);
+        width: min-content;
+        word-spacing: 0;
+        text-align: right;
+    }
+    img{
+        border-radius: 80px;
+        width: 64px;
+        height: 64px;
+    }
+}

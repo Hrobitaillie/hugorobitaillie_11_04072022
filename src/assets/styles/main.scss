@@ -1,3 +1,5 @@
+@use 'utils/mixins';
+
 body {
     margin: 0;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -11,15 +13,35 @@ body {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
       monospace;
   }
-  .content{
-    height: 100vh;
+  #root{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
   }
-
+  .content{
+    max-width: 1240px;
+    width: 100%;
+    height: 100%;
+    flex-basis: 100%;
+    flex-grow: 100;
+    box-sizing: border-box;
+    padding: 0px 20px;
+  }
   h1{
     font-family: 'Montserrat';
     font-style: normal;
     font-weight: 500;
     font-size: 48px;
     color: #FFFFFF;
-
+    padding: 10px;
+    @include mixins.ipad{
+      font-size: 24px;
+    }
   }
+
+  *{
+    font-family: 'Montserrat';
+  }
+

@@ -1,24 +1,28 @@
 
 
+@use '../utils/mixins';
+
 .banner{
+
+    background-position: center;
     max-width: 1240px;
     max-height: 223px;
     height: 100%;
     width: 100%;
-    background-image: url("../../img/background_homepage.png");
-    background-position: 0 -65px;
-    background-size: auto;
+    background-size: cover;
     margin: auto;
     position: relative;
     z-index: 0;
-    &::before{
-        content: '';
-        height: 100%;
-        width: 100%;
-        background-color: black;
-        position: absolute;
-        opacity: 0.3;
-        z-index: 1;
+    border-radius: 25px;
+    overflow: hidden;
+    @include mixins.mobile{
+        border-radius: 10px;
+    }
+    &_home{
+        background-image: url("../../img/eric-muhr-P_XxsdVgtpQ-unsplash.jpg");
+    }
+    &_about{
+        background-image: url("../../img/kalen-emsley-Bkci_8qcdvQ-unsplash.jpg");
     }
     h1{
         color: white;
@@ -30,3 +34,29 @@
         margin: auto;
     }
 }
+
+.bannerContainer{
+    height: 223px;
+    @include mixins.ipad{
+        height: unset;
+        aspect-ratio: 670/222;
+    }
+    > div{
+        &::before{
+            content: '';
+            height: 100%;
+            width: 100%;
+            background-color: black;
+            position: absolute;
+            opacity: 0.3;
+            z-index: 1;
+        }
+    }
+}
+.bannerLocationContainer{
+    height: 415px;
+    @include mixins.ipad{
+        height: 255px;
+    }
+}
+  
