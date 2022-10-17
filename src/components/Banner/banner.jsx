@@ -10,15 +10,6 @@ function Banner(props){
                 BannerStyle.banner, 
                 BannerStyle['banner_' + props.pageName],
             )}
-            // Si la bannière a reci la props "props" alors on est sur la page location
-            // on définit donc un background image en récupérant la cover du logement 
-            // et on change la hauteur de la bannière
-            style={
-                props.props && {
-                    backgroundImage: `url(${props.props.cover})`,
-                    maxHeight: '415px'
-                }
-            }
         >
             {/* Si on transmet un props "title" alors on l'écrit dans un H1 */}
             {props.title && <h1> { props.title } </h1>}

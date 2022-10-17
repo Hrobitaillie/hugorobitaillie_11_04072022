@@ -5,7 +5,7 @@ import Slider from 'components/Slider/Slider';
 
 function Location() {
 const location = useLocation().state
-
+console.log(useLocation())
   return (
     <div className="content">
       <Slider props= { location }/>

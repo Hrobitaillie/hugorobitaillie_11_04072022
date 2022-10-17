@@ -7,7 +7,6 @@ import SliderStyle from 'assets/styles/components/slider.module.scss'
 
 export default function Slider( { props } ){
     const LocationData = props;
-    console.log(LocationData.pictures.length);
 
     const isNavigation = () =>{
         if ( LocationData.pictures.length > 1) {
@@ -25,7 +24,7 @@ export default function Slider( { props } ){
         id="location-slider"
         navigation={LocationData.pictures.length > 1 && true} 
         // @ts-ignore
-        modules={LocationData.pictures.length > 1 && isNavigation()}
+        modules={isNavigation()}
         simulateTouch={false}
         loop={true}
         className={SliderStyle.locationslider}
