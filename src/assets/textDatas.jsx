@@ -5,7 +5,10 @@ export const menuItems = [
 
 export const errorPage = {
     Title: "404",
-    Baseline: "Oups! La page que vous demandez n'existe pas."
+    errorType: {
+        page: "Oups! La page que vous demandez n'existe pas.",
+        content: "Oups! Le contenu que vous demandez n'a pas été trouvé.",
+    }
 }
 
 export const aboutAccordionsDatas = [

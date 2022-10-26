@@ -14,24 +14,26 @@ function Header() {
     });
 
     return (
-        <div id={styleHeader.header}>
-            <Link to={"/"} ><img src={logo} alt="" /></Link>
-            <nav>
-                {menuItems.map((item, index) => {
-                    return (
-                        <NavLink 
-                            key={`${item.Name}-${index}`} 
-                            // className={`${styleHeader.navbar_item} `}
-                            to={`/${item.Slug}`}
-                            className={
-                                ({ isActive }) => (isActive ? `${styleHeader.navbar_item} ${styleHeader.navbar_item_active} ` : `${styleHeader.navbar_item}`)
-                            }
-                        >
-                            {item.Name}
-                        </NavLink>    
-                    )
-                })}
-            </nav>
+        <div className={'content '+ styleHeader}>
+            <div id={styleHeader.header}>
+                <Link to={"/"} ><img src={logo} alt="" /></Link>
+                <nav>
+                    {menuItems.map((item, index) => {
+                        return (
+                            <NavLink 
+                                key={`${item.Name}-${index}`} 
+                                // className={`${styleHeader.navbar_item} `}
+                                to={`/${item.Slug}`}
+                                className={
+                                    ({ isActive }) => (isActive ? `${styleHeader.navbar_item} ${styleHeader.navbar_item_active} ` : `${styleHeader.navbar_item}`)
+                                }
+                            >
+                                {item.Name}
+                            </NavLink>    
+                        )
+                    })}
+                </nav>
+            </div>
         </div>
     )
 }
