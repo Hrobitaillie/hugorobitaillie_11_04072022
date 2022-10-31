@@ -8,7 +8,6 @@ import About from 'pages/About/about';
 import Location from 'pages/Location/location';
 import Error from 'pages/Error/error';
 import Footer from 'components/Footer/footer';
-import "swiper/css/bundle";
 
 function App() {
 
@@ -16,10 +15,14 @@ function App() {
         <>
             <Header />
             <Routes>
+                {/* route par defaut */}
                 <Route path="/" element={<Home />} />
+                {/* route page a propos */}
                 <Route path="/a-propos" element={<About />} />
-                <Route path="/appartement/:locationId" element={<Location />} />
-                <Route path="*" element={<Error />} />
+                {/* route page des locations */}
+                <Route path="/appartement/:id" element={<Location />} />
+                {/* route pour les erreurs */}
+                <Route path="*" element={<Error type={"page"}/>} />
             </Routes>
             <Footer/>
         </>

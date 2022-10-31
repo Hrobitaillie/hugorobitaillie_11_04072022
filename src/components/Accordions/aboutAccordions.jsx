@@ -3,15 +3,12 @@ import AccordionStyle from "assets/styles/components/accordion.module.scss"
 import classNames from "classnames"
 
 function AboutAccordions( { data } ){
-    const Data = data
-
     return(
-
         <div className={classNames(AccordionStyle.accordionsContainer,AccordionStyle.accordionsAboutContainer)}>
-            {Data.map( (item,index) => (
-                <Accordion key={index} data={item} defaultState="Close"> { item.data } </Accordion > 
+            {/* itération sur le nombre de dropdown souhaité et appel du coposant pour construire le dropdown */}
+            {data.map( (item,index) => (
+                <Accordion key={index} data={item} defaultState="Close"/>
             ))}
-
         </div>
     )
 }

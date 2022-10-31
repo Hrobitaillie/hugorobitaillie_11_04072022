@@ -5,6 +5,7 @@ import LocationCardStyle from "assets/styles/components/locationCard.module.scss
 
 function LocationCard( { Data } ){
     const locationList = Data
+    
     return (
         <div className={LocationCardStyle.CardContainer} >
             {

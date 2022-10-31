@@ -1,47 +1,88 @@
-import { Navigation } from "swiper";
-import { Swiper , SwiperSlide } from "swiper/react";
-import 'swiper/css';
-import "swiper/css/navigation";
 import SliderStyle from 'assets/styles/components/slider.module.scss'
+import { useState } from 'react'
+
+export default function Slider({ props }) {
+  const [slideState, setSlideState] = useState(0)
+  const LocationData = props
+  const pictures = LocationData.pictures
 
 
-export default function Slider( { props } ){
-    const LocationData = props;
-
-    const isNavigation = () =>{
-        if ( LocationData.pictures.length > 1) {
-           return (
-            [Navigation]
-           )
-        }else{
-            return ""
-        }
+  // Récupération de l'évènement du clic
+  function handleChange(operator) {
+    //si cliqué sur suivant
+    if (operator === '+') {
+        slideState === pictures.length - 1
+        // si la dernière image est affichée on passe a la première
+        ? setSlideState(0)
+        // sinon on passe a l'image suivante
+        : setSlideState(slideState + 1)
+    } else {
+        // sinon, le clic est fait sur précédent
+      slideState === 0
+        // si la première image est affichée, on passe a la dernière
+        ? setSlideState(pictures.length - 1)
+        // sinon on passe à l'image précédente
+        : setSlideState(slideState - 1)
     }
-    return(
-        <Swiper
-        tag="section"
-        wrapperTag="ul"
-        id="location-slider"
-        navigation={LocationData.pictures.length > 1 && true} 
-        // @ts-ignore
-        modules={isNavigation()}
-        simulateTouch={false}
-        loop={true}
-        className={SliderStyle.locationslider}
-        >
-            {LocationData.pictures.map((picture, i) => {
-                return (
-                <SwiperSlide key={`slide-${i}`}>
-                    <div style={{
-                        backgroundImage:`url(${picture})`,
-                        width:"100%",
-                        height:"100%",
-                        backgroundPosition:"center",
-                        backgroundSize:"cover"
-                        }}>
-                    </div>
-                </SwiperSlide>)
-            })}
-        </Swiper>
-    )
+  }
+
+  return (
+    <div className={SliderStyle.locationslider}>
+        {/* affichage de l'image du slider en fonction de l'index. */}
+        <div
+            style={{
+            backgroundImage: `url(${pictures[slideState]})`,
+            width: '100%',
+            height: '100%',
+            backgroundPosition: 'center',
+            backgroundSize: 'cover',
+            }}
+        ></div>
+      
+      {/* Si le logement possède qu'une seule image, alors les controles du slider ne seront pas affichés */}
+      {pictures.length > 1 && (
+        <>
+          <div className={SliderStyle.chevronSection}>
+            <div
+              className={
+                SliderStyle.chevronContainer +
+                ' ' +
+                SliderStyle.chevronContainerLeft
+              }
+            //   au click, on déclanche la fonction de changement d'image
+              onClick={() => {
+                handleChange('-')
+              }}
+            >
+              <img
+                src="/assets/chevron-left.svg"
+                alt=""
+                className={SliderStyle.chevron}
+              />
+            </div>
+            <div
+              className={
+                SliderStyle.chevronContainer +
+                ' ' +
+                SliderStyle.chevronContainerRight
+              }
+            //   au click, on déclanche la fonction de changement d'image
+              onClick={() => {
+                handleChange('+')
+              }}
+            >
+              <img
+                src="/assets/chevron-right.svg"
+                alt=""
+                className={SliderStyle.chevron}
+              />
+            </div>
+          </div>
+          <p className={SliderStyle.sliderPaging}>
+            {slideState + 1}/{pictures.length}
+          </p>
+        </>
+      )}
+    </div>
+  )
 }

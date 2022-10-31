@@ -1,8 +1,7 @@
-import { Accordion, AccordionList } from "./accordion"
+import { Accordion } from "./accordion"
 import AccordionStyle from "assets/styles/components/accordion.module.scss"
 
 function LocationAccordions( { props } ){
-
     let description = {
         title : "Description",
         data : props.description
@@ -12,13 +11,9 @@ function LocationAccordions( { props } ){
         data : props.equipments
     }
     return(
-
         <div className={AccordionStyle.accordionsContainer}>
-
-            <Accordion data= { description } defaultState="Close"> { description.data } </Accordion >
-            
-            <AccordionList data= { equipements } defaultState="Close"/>
-
+            <Accordion data= { description } defaultState="Close"/>
+            <Accordion data= { equipements } defaultState="Close"/>
         </div>
     )
 }
