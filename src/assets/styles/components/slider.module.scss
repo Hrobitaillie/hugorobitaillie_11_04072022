@@ -6,6 +6,7 @@
     box-sizing: border-box;
     margin: 0;
     position: relative;
+    overflow: hidden;
     @include mixins.ipad{
         height: 255px;
     }
@@ -36,6 +37,10 @@
     display: flex;
     align-items: center;
     padding: 0 25px;
+    @include mixins.mobile{
+        padding: 0 5px;
+
+    }
     &:hover{
         background: linear-gradient(90deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0) 100%);
     }
@@ -48,6 +53,9 @@
 }
 .chevron{
     width:46px;
+    @include mixins.mobile{
+        width: 12px;
+    }
 }
 .sliderPaging{
     position: absolute;
@@ -58,4 +66,7 @@
     font-size: 18px;
     transform: translateX(-50%);
     width: fit-content;
+    @include mixins.mobile{
+        display: none;
+    }
 }
