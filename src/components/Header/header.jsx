@@ -6,8 +6,6 @@ import { menuItems } from 'assets/textDatas';
 
 function Header() {
 
-    
-
     menuItems.forEach((item) => {
         const slug = item.Name.replace(/\s+/g, '-').toLowerCase()
         slug.includes("accueil" ) ? item.Slug = "" : item.Slug = slug;
@@ -21,7 +19,6 @@ function Header() {
                     return (
                         <NavLink 
                             key={`${item.Name}-${index}`} 
-                            // className={`${styleHeader.navbar_item} `}
                             to={`/${item.Slug}`}
                             className={
                                 ({ isActive }) => (isActive ? `${styleHeader.navbar_item} ${styleHeader.navbar_item_active} ` : `${styleHeader.navbar_item}`)
